@@ -2,13 +2,11 @@ import React from 'react';
 
 const Header = () => {
   return (
-      <nav>
+      <nav className="blue-grey darken-1">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
+          <a href="#" className="brand-logo">React Movies</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a >Sass</a></li>
-            <li><a >Components</a></li>
-            <li><a >JavaScript</a></li>
+            <li><a href="!#">Repo</a></li>
           </ul>
         </div>
       </nav>
