@@ -16,7 +16,7 @@ const Card = (props) => {
           {
             poster === 'N/A'
                 ?
-                (<img className="activator" src={`https://via.placeholder.com/300x450git /000000/FFFFFF/?text=${title}`}/>)
+                (<img className="activator" src={`https://via.placeholder.com/300x450/000000/FFFFFF/?text=${title}`}/>)
                 :
                 (<img className="activator" src={poster}/>)
           }
