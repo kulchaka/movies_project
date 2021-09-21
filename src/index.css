@@ -15,3 +15,11 @@ nav {
   min-height: calc(100vh - 64px - 70px);
   padding: 1.5rem 0;
 }
+
+.movies {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 30px;
+  margin-top: 22px;
+}
