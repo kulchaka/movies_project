@@ -13,7 +13,14 @@ const Card = (props) => {
   return (
       <div id={id} className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src={poster}/>
+          {
+            poster === 'N/A'
+                ?
+                (<img className="activator" src={`https://via.placeholder.com/300x450git /000000/FFFFFF/?text=${title}`}/>)
+                :
+                (<img className="activator" src={poster}/>)
+          }
+
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">{title}</span>

@@ -16,7 +16,14 @@ class Main extends Component {
   render() {
     return (
         <main>
-         <Movies movies={this.state.movies}/>
+          {
+            this.state.movies.length
+                ?
+                (<Movies movies={this.state.movies}/>)
+                :
+                (<h1>Loading...</h1>)
+          }
+
         </main>
     );
   }

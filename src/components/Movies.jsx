@@ -6,9 +6,9 @@ const Movies = (props) => {
   const {movies} = props
 
   return (
-      <div className="movies">
+      <div className="container movies">
         {
-          movies.map(e => <Card key={e.id} {...e}/>)
+          movies.map(e => <Card key={e.imdbID} {...e}/>)
         }
       </div>
   );
