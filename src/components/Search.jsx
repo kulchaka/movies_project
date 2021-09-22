@@ -7,7 +7,8 @@ class Search extends Component {
   }
 
   handleKey = (event) => {
-    if (event.key === 'Enter') {
+    console.log(event)
+    if (event.key === 'Enter' || event.type === 'click') {
       this.props.search(this.state.search)
       this.setState({search: ''})
     }
@@ -15,15 +16,17 @@ class Search extends Component {
 
   render() {
     return (
-        <div className="row container">
-          <input
-              value={this.state.search}
-              onChange={(e) => this.setState({search: e.target.value})}
-              type="search"
-              placeholder="Search..."
-              className="validate"
-              onKeyDown={this.handleKey}
-          />
+        <div className="row container search-container">
+
+            <input
+                value={this.state.search}
+                onChange={(e) => this.setState({search: e.target.value})}
+                type="search"
+                placeholder="Search..."
+                className="validate"
+                onKeyDown={this.handleKey}
+            />
+            <button className="btn search-btn" onClick={this.handleKey}>Search</button>
         </div>
     );
   }
