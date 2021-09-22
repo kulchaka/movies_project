@@ -8,7 +8,7 @@ const Movies = (props) => {
   return (
       <div className="container movies">
         {
-          movies.map(e => <Card key={e.imdbID} {...e}/>)
+          movies.map(e => <Card key={e.imdbID} {...e} />)
         }
       </div>
   );
