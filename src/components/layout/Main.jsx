@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Movies from "../Movies";
 import Preloader from "../Preloader";
+import Search from "../Search";
 
 class Main extends Component {
 
@@ -20,7 +21,10 @@ class Main extends Component {
           {
             this.state.movies.length
                 ?
-                (<Movies movies={this.state.movies}/>)
+                (<>
+                  <Search/>
+                  <Movies movies={this.state.movies}/>
+                </>)
                 :
                 (<Preloader/>)
           }
