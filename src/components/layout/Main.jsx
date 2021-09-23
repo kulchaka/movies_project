@@ -7,7 +7,8 @@ class Main extends Component {
 
   state = {
     movies: [],
-    errorSearch: true
+    errorSearch: true,
+    type: 'series'
   }
 
   componentDidMount() {
@@ -16,8 +17,8 @@ class Main extends Component {
         .then(data => this.setState({movies: data.Search}))
   }
 
-  searchMovies = str => {
-    fetch(`http://www.omdbapi.com/?apikey=47b0015f&s=${str}`)
+  searchMovies = (str, type) => {
+    fetch(`http://www.omdbapi.com/?apikey=47b0015f&s=${str}&type=${type}`)
         .then(respone => respone.json())
         .then(data => this.setState({movies: data.Search}))
         .catch(err => alert(err))
@@ -31,7 +32,7 @@ class Main extends Component {
                 ?
                 (<>
                   <Search search={this.searchMovies}/>
-                  <Movies movies={this.state.movies} />
+                  <Movies movies={this.state.movies}/>
                 </>)
                 :
                 (<Preloader/>)
