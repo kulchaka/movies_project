@@ -18,6 +18,7 @@ class Main extends Component {
   }
 
   searchMovies = (str, type) => {
+    console.log('Fecth', type)
     fetch(`http://www.omdbapi.com/?apikey=47b0015f&s=${str}&type=${type}`)
         .then(respone => respone.json())
         .then(data => this.setState({movies: data.Search}))
