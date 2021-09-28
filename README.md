@@ -12,7 +12,7 @@
 
 ### Setup
 
-- At first you need yo install npm packeges:
+- At first you need install npm packeges:
 
 ```shell
 $ npm install
