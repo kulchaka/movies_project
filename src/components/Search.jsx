@@ -1,83 +1,78 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 
-class Search extends Component {
+const Search = ({searchMovies}) => {
+  const [search, setSearch] = useState('')
+  const [type, setType] = useState('')
 
-  state = {
-    search: '',
-    type: ''
-  }
-
-  handleKey = (event) => {
+  const handleKey = (event) => {
     if (event.key === 'Enter' || event.type === 'click') {
-      this.props.search(this.state.search, this.state.type)
+      searchMovies(search, type)
       // this.setState({search: '', type: ''})
 
     }
   }
 
-  handlerType = (event) => {
-    this.setState(() => ({type: event.target.value}), () => {
-      if (this.state.search.length) {
-        this.props.search(this.state.search, this.state.type)
-      }
-    })
+  const handlerType = (event) => {
+    setType(event.target.value)
+    if (search.length) {
+      searchMovies(search, event.target.value)
+    }
+
   }
 
-  render() {
-    return (
-        <div className="container">
-          <div className="row search-container">
-            <input
-                value={this.state.search}
-                onChange={(e) => this.setState({search: e.target.value})}
-                type="search"
-                placeholder="Search..."
-                className="validate"
-                onKeyDown={this.handleKey}
-            />
-            <button className="btn search-btn" onClick={this.handleKey}>Search</button>
-          </div>
-          <div>
-            <p>
-              <label>
-                <input
-                    name="type"
-                    type="radio"
-                    value=""
-                    checked={this.state.type === ''}
-                    onChange={this.handlerType}
-                />
-                <span>All</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input
-                    name="type"
-                    type="radio"
-                    value="movie"
-                    checked={this.state.type === 'movie'}
-                    onChange={this.handlerType}
-                />
-                <span>Movies</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input
-                    name="type"
-                    type="radio"
-                    value="series"
-                    checked={this.state.type === 'series'}
-                    onChange={this.handlerType}
-                />
-                <span>Serials</span>
-              </label>
-            </p>
-          </div>
+  return (
+      <div className="container">
+        <div className="row search-container">
+          <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              type="search"
+              placeholder="Search..."
+              className="validate"
+              onKeyDown={handleKey}
+          />
+          <button className="btn search-btn" onClick={handleKey}>Search</button>
         </div>
-    );
-  }
-}
+        <div>
+          <p>
+            <label>
+              <input
+                  name="type"
+                  type="radio"
+                  value=""
+                  checked={type === ''}
+                  onChange={handlerType}
+              />
+              <span>All</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                  name="type"
+                  type="radio"
+                  value="movie"
+                  checked={type === 'movie'}
+                  onChange={handlerType}
+              />
+              <span>Movies</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input
+                  name="type"
+                  type="radio"
+                  value="series"
+                  checked={type === 'series'}
+                  onChange={handlerType}
+              />
+              <span>Serials</span>
+            </label>
+          </p>
+        </div>
+      </div>
+  );
+};
 
 export default Search;

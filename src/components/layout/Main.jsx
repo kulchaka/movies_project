@@ -39,7 +39,7 @@ class Main extends Component {
     const {movies, loading} = this.state
     return (
         <main>
-          <Search search={this.searchMovies}/>
+          <Search searchMovies={this.searchMovies}/>
           {
             loading
                 ?
